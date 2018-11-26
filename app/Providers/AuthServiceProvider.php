@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('updateOrDestoryOfPosts', function($user, $post) {
-            return $user->id == $post->user_id;
+            return $user->id === $post->user_id || $user->hasRole('admin');
         });
 
         // Gate::resource('posts', 'PostPolicy');

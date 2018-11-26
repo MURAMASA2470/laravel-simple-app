@@ -25,7 +25,7 @@
                             <th>ID</th>
                             <th>NAME</th>
                             <th>EMAIL</th>
-                            <th>PASSWORD</th>
+                            @role('admin')<th>PASSWORD</th>@endrole
                             <th>ROLE</th>
                             <th class="text-right">OPTIONS</th>
                         </tr>
@@ -37,13 +37,13 @@
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->password}}</td>
+                                @role('admin')<td>{{$user->password}}</td>@endrole
                                 <td>{{$user->getRoleNames()[0]}}</td>
                                 <td class="text-right">
                                     <a class="btn btn-xs btn-primary" href="{{ route('users.show', $user->id) }}"><i class="glyphicon glyphicon-eye-open"></i> View</a>
                                     @role('admin')
                                         <a class="btn btn-xs btn-warning" href="{{ route('users.edit', $user->id) }}"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="user" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="post" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <button type="submit" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</button>

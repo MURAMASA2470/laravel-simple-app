@@ -61,11 +61,8 @@ class PostController extends Controller {
 
 		$post->save();
 
-		$isError = false;
-		$message = "正常に追加されました";
-		$url = "posts";
-
-		return redirect()->route('posts.index')->with('message', 'Item created successfully.');
+		flash('Item created successfully.')->success();
+		return redirect()->route('posts.index');
 	}
 
 	/**
@@ -123,7 +120,8 @@ class PostController extends Controller {
 
 		$post->save();
 
-		return redirect()->route('posts.index')->with('message', 'Item updated successfully.');
+		flash('Item updated successfully.')->success();
+		return redirect()->route('posts.index');
 	}
 
 	/**
@@ -138,7 +136,8 @@ class PostController extends Controller {
 
 		$post->delete();
 
-		return redirect()->route('posts.index')->with('message', 'Item deleted successfully.');
+		flash('Item deleted successfully.')->success();
+		return redirect()->route('posts.index');
 	}
 
 	//関数化するとうまく動かない

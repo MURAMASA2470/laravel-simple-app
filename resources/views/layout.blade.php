@@ -75,13 +75,11 @@
     </nav>
 
     
-    @if (session('message'))
-        <div class="container mt-2">
-            <div class="alert alert-success">
-                {{ session('message') }}
-            </div>
-        </div>
-    @endif
+    <div class="container mt-2">
+        @include('flash::message')
+    </div>
+
+    @include('flash::message')
 
     <div class="container">
         @yield('header')
