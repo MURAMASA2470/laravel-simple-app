@@ -4,12 +4,12 @@
     <div class="page-header clearfix">
         <h1>
             <i class="glyphicon glyphicon-align-justify"></i> Users
-            @auth
+            @role('admin')
             <a class="btn btn-success pull-right" href="{{ route('users.create') }}">
                 <i class="glyphicon glyphicon-plus"></i> 
                 Create
             </a>
-            @endauth
+            @endrole
         </h1>
 
     </div>

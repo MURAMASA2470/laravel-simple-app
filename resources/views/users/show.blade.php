@@ -32,10 +32,12 @@
                      <label for="body">EMAIL</label>
                      <p class="form-control-static">{{$user->email}}</p>
                 </div>
+                @role('admin')
                 <div class="form-group">
                     <label for="body">PASSWORD</label>
                     <p class="form-control-static">{{$user->password}}</p>
                </div>
+               @endrole
                <div class="form-group">
                    <label for="body">ROLE</label>
                    <p class="form-control-static">{{$user->getRoleNames()[0]}}</p>
