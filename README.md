@@ -19,6 +19,17 @@
 
 http://polish-test-server05.tokyo/larabel-simple-app/public/
 
+### テストユーザ
+- 管理者
+    - mail: admin@mail
+    - pass: admin
+- スタッフ
+    - mail: staff@mail
+    - pass: staff
+- 一般ユーザ
+    - mail: common@mail
+    - pass: common
+
 ## 事前準備
 
 `laralib/l5scaffold`の不具合によりあるファイルに変更を加えないと正常に動きません
@@ -68,6 +79,7 @@ https://qiita.com/masahirok_jp/items/43205bb62cdc4240bb83
 
 ※ユーザ新規登録時は全員`common`が割り振られます
 
+
 ### 記事投稿機能
 各記事は**投稿者自身と管理者のみ**編集及び削除が可能です
 
@@ -82,7 +94,7 @@ https://qiita.com/masahirok_jp/items/43205bb62cdc4240bb83
 
 スタッフはユーザの読み取りのみ可能です
 
-ページ下部の`Export Excel`ボタンを押下すると`users.xlsx`がダウンロードされる
+ページ下部の`Export Excel`ボタンを押下すると`users.xlsx`がダウンロードされます
 
 
 
