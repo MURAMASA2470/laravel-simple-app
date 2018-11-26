@@ -15,19 +15,20 @@
 - mysql 8.0
 - laradock
 
-## 実際に動いてるものはこちら
+## 実際に動いてるものはこちら
 
 http://polish-test-server05.tokyo/larabel-simple-app/public/
 
 ## 事前準備
+
 `laralib/l5scaffold`の不具合によりあるファイルに変更を加えないと正常に動きません
 
 ``/vendor/laralib/l5scaffold/src/Commands/ScaffoldMakeCommand.php``
-
 ​の21行目の
 
 ``use AppNamespaceDetectorTrait, MakerTrait;``
 が嘘なので、
+
 ``use DetectsApplicationNamespace​, MakerTrait;``
 に変えます。
 
@@ -36,15 +37,12 @@ http://polish-test-server05.tokyo/larabel-simple-app/public/
 と変えます。
 
 ``/vendor/laralib/l5scaffold/src/Makes/MakeController.php``
-
 の13行目を
 
 ``use AppNamespaceDetectorTrait, MakerTrait;``
-
 から、
 
 ``use DetectsApplicationNamespace​, MakerTrait;``
-
 に変えます
 
 参考：
