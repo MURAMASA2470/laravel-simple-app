@@ -17,24 +17,22 @@ Route::get('/',"PostController@index");
 
 Route::resource("posts","PostController");
 
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('users/export', 'UserController@export');
-    Route::resource('users', 'UserController');
-});
-
-Route::group(['middleware' => ['role:staff']], function () {
-    Route::resource('users', 'UserController', ['only' => ['index', 'show']]);
-});
 
 //ログイン中のユーザのみ許可
 // Route::group(['middleware' => ['auth']], function () {
 
 // });
 
+// 権限にWriteが付与されているユーザのみ許可
+Route::group(['middleware' => ['permission:Write']], function () {
+    Route::get('users/export', 'UserController@export');
+    Route::resource("users","UserController");
+});
+
 // 権限にReadが付与されているユーザのみ許可
-// Route::group(['middleware' => ['permission:Read']], function () {
-//     Route::resource("users","UserController");
-// });
+Route::group(['middleware' => ['permission:Read']], function () {
+    Route::resource("users","UserController", ['only' => ['index', 'show']]);
+});
 
 Route::get('/home', 'HomeController@index');
 
