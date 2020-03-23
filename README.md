@@ -17,8 +17,6 @@
 
 ## 実際に動いてるものはこちら
 
-http://polish-test-server05.tokyo/larabel-simple-app/public/
-
 ### テストユーザ
 - 管理者
     - mail: admin@mail
